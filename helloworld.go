@@ -1,2 +1,6 @@
 package main
-import "git"
+import "github.com/astaxie/beego"
+
+func  main()  {
+    beego.Run()
+}
