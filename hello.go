@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "unicode/utf8"
 
 func x()  {
 	var x, y  int
@@ -13,6 +14,18 @@ func f() *int {
 	
 }
 
+func y(){
+	s := "hello world"
+	fmt.Println(len(s))
+	fmt.Println(s[0], s[7])
+
+}
+
+func z() {
+	s := "hello 世界"
+	fmt.Println(len(s))
+	fmt.Println(utf8.RuneCountInString(s))
+}
 func main() {
 	x := 1
 	p := &x
@@ -23,5 +36,7 @@ func main() {
 
 	fmt.Println(f() == f())
 	fmt.Println(f())
+	y()
+	z()
 
 }
