@@ -40,6 +40,7 @@ func main() {
 	fmt.Println(f.ABS())
 
 	k := MyInt(1)
+
 	fmt.Println(k.aaa())
 
 }
