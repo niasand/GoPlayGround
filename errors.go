@@ -15,7 +15,7 @@ func (e *MyError) Error() string {
 }
 
 func run() error {
-
+	fmt.Println("...")
 	return &MyError{
 		time.Now(),
 		"It does not work",
@@ -23,7 +23,7 @@ func run() error {
 }
 
 func main() {
-	if err := run(); err != nil {
+	if err := run(); err == nil {
 		fmt.Println(err)
 	}
 }
