@@ -52,6 +52,8 @@ func IsEqual(a, b float64) bool {
 }
 
 
+
+
 func main()  {
 	fmt.Println(KB)
 	var a double = 1.999999
@@ -59,4 +61,17 @@ func main()  {
 	fmt.Println(a.IsEqual(b))
 	fmt.Println(a.IsEqual(3))
 	fmt.Println( IsEqual( (float64)(a), (float64)(b) ) )
-}
+
+	//赋值
+	fc := func(msg string) {
+		fmt.Println("you say :", msg)
+	}
+	fmt.Printf("%T \n", fc)
+
+	fc("hello,my love")
+	//直接执行
+	func(msg string) {
+		fmt.Println("say :", msg)
+	}("I love to code")
+
+	}
