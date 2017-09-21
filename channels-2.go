@@ -13,7 +13,7 @@ func sum(a []int, c chan int) {
 
 func main() {
 	a := []int{7, 2, 8, -9, 4, 0}
-
+	fmt.Println(a)
 	c := make(chan int)
 	go sum(a[:len(a)/2], c)
 	go sum(a[len(a)/2:], c)
