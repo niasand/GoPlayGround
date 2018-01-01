@@ -28,6 +28,12 @@ type BitcoinInfo struct {
 	BaseCurrency   string `json:"basecurrency"`
 }
 
+//BrowserVersionSupport
+type BrowserVersionSupport struct {
+	Chrome  string
+	Firefox string
+}
+
 //BitcoinInfoAPIResponse include the BitcoinInfo struct
 type BitcoinInfoAPIResponse struct {
 	Status  string        `json:"status"`
@@ -104,11 +110,24 @@ func withGoRequestPost() {
 	fmt.Println("######")
 }
 
+func sendBrowserVersion() {
+	browserVersion := BrowserVersionSupport{Chrome: "63.0", Firefox: "30.0"}
+	request := gorequest.New()
+	resp, body, err := request.Post("http://example.com").
+		Send(browserVersion).
+		Send(`Safari:"5.1.10"`).End()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(resp, body)
+}
+
 func main() {
 	// getR()
 	// postForm()
 	withGorequest()
 	withGoRequestPost()
 	withOutGoRequestPost()
+	sendBrowserVersion()
 
 }
