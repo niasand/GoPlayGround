@@ -85,8 +85,8 @@ func withOutGoRequestPost() {
 		"name":    "jacky",
 		"species": "dog",
 	}
-	mJson, _ := json.Marshal(m)
-	contentReader := bytes.NewReader(mJson)
+	mJSON, _ := json.Marshal(m)
+	contentReader := bytes.NewReader(mJSON)
 	req, _ := http.NewRequest("POST", "http://example.com", contentReader)
 	req.Header.Set("Content-Type", "application/json")
 	req.Header.Set("Notes", "Go request is coming! ")
