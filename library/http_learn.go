@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -73,10 +74,41 @@ func withGorequest() {
 	fmt.Println(s.Markets[0].MarketName)
 
 }
+func withOutGoRequestPost() {
+	m := map[string]interface{}{
+		"name":    "jacky",
+		"species": "dog",
+	}
+	mJson, _ := json.Marshal(m)
+	contentReader := bytes.NewReader(mJson)
+	req, _ := http.NewRequest("POST", "http://example.com", contentReader)
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Notes", "Go request is coming! ")
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Println(resp.Body)
+}
+
+func withGoRequestPost() {
+	request := gorequest.New()
+	_, body, errs := request.Post("http://example.com").
+		Set("Notes", "Go request is coming! ").Send(`{"name":"jacky","species":"dog"}`).End()
+	if errs != nil {
+		panic(errs)
+	}
+	fmt.Println("######")
+	fmt.Println(body)
+	fmt.Println("######")
+}
 
 func main() {
 	// getR()
 	// postForm()
 	withGorequest()
+	withGoRequestPost()
+	withOutGoRequestPost()
 
 }
