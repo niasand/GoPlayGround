@@ -1,4 +1,8 @@
 # Compiled Object files, Static and Dynamic libs (Shared Objects)
+# .DS_Stor
+.DS_Store
+.idea
+.idea/
 *.o
 *.a
 *.so
