@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"time"
 
 	"github.com/parnurzeal/gorequest"
 )
@@ -66,7 +67,7 @@ func postForm() {
 
 func withGorequest() {
 	request := gorequest.New()
-	_, body, err := request.Get(URL).End()
+	_, body, err := request.Get(URL).Retry(3, 5*time.Second, http.StatusBadRequest, http.StatusInternalServerError).End()
 	if err != nil {
 		panic(err)
 	}
