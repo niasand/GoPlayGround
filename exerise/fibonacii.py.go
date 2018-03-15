@@ -21,16 +21,3 @@ func fibonacci(n int) int {
 
 	return res
 }
-
-func print_ten_to_zero(n int ) int {
-	var j int
-	if n <=1{
-		j = 1
-	}
-	else{
-		j -=1
-		fmt.println
-
-	}
-}
-
