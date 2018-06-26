@@ -1,4 +1,6 @@
 # how_to_go
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fniasand%2Fhow_to_go.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fniasand%2Fhow_to_go?ref=badge_shield)
+
 Golang 
 Learn the go
 
@@ -23,3 +25,7 @@ func main() {
 	}
 }
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fniasand%2Fhow_to_go.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fniasand%2Fhow_to_go?ref=badge_large)
