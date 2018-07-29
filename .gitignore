@@ -6,6 +6,7 @@
 *.o
 *.a
 *.so
+.vscode
 
 .idea/
 .idea
