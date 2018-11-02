@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package messages;
+
+
+
+message Ping {
+    string User = 1;
+}
+
+message Pong {}
