@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/astaxie/beego"
+)
+
+
 
 //Shape 定义一个Shape的接口，可以对不同形状的shape求面积
 type Shape interface {
@@ -24,6 +29,7 @@ func thearea(s Shape) int {
 }
 
 func main() {
+	beego.Run()
 	s := Square{3, 4}
 	v := thearea(&s)
 	fmt.Println(v)
