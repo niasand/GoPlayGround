@@ -19,28 +19,29 @@ string 类型的值是只读的二进制 byte slice，如果真要修改字符�
 import "fmt"
 import "unicode/utf8"
 
-func main(){
-    x := "text"
-    xRunes :=[]rune(x)
-    xRunes[0] = '我'
-    x = string(xRunes)
-    fmt.Println(x) //我ext
+func main() {
 
-    y := "ascii"
-    fmt.Println(y[0]) // 97
-    fmt.Printf("%T\n",y[0]) // uint8
+	x := "text"
+	xRunes := []rune(x)
+	xRunes[0] = '我'
+	x = string(xRunes)
+	fmt.Println(x) //我ext
 
- fmt.Println("****字符串并不都是 UTF8 文本****") 
-// string 的值不必是 UTF8 文本，可以包含任意的值。只有字符串是文字字面值时才是 UTF8 文本，字串可以通过转义来包含其他数据。
-// 判断字符串是否是 UTF8 文本，可使用 "unicode/utf8" 包中的 ValidString() 函数：
+	y := "ascii"
+	fmt.Println(y[0])        // 97
+	fmt.Printf("%T\n", y[0]) // uint8
 
-    str1 := "ABC"
-    fmt.Println(utf8.ValidString(str1))  // true
+	fmt.Println("****字符串并不都是 UTF8 文本****")
+	// string 的值不必是 UTF8 文本，可以包含任意的值。只有字符串是文字字面值时才是 UTF8 文本，字串可以通过转义来包含其他数据。
+	// 判断字符串是否是 UTF8 文本，可使用 "unicode/utf8" 包中的 ValidString() 函数：
 
-    str2 := "A\xfeC"
-    fmt.Println(utf8.ValidString(str2))  // false
+	str1 := "ABC"
+	fmt.Println(utf8.ValidString(str1)) // true
 
-    str3 := "A\\xfeC"
-    fmt.Println(utf8.ValidString(str3))  // true 把转义字符转义成了字面值
+	str2 := "A\xfeC"
+	fmt.Println(utf8.ValidString(str2)) // false
+
+	str3 := "A\\xfeC"
+	fmt.Println(utf8.ValidString(str3)) // true 把转义字符转义成了字面值
 
 }
