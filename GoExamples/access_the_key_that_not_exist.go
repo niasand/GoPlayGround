@@ -14,7 +14,7 @@ Go 则会返回元素对应数据类型的零值，比如 nil、'' 、false 和 
 
 import "fmt"
 
-func main() {
+func DictInspect() {
     // 错误的 key 检测方式
     x := map[string]string{"one":"1","two":"", "three":"3","four":""}
 
