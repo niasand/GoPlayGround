@@ -1,4 +1,4 @@
-package GoExamples
+package Go2021
 
 import (
 	"bytes"
@@ -7,7 +7,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"time"
 	"github.com/parnurzeal/gorequest"
 )
 
@@ -50,13 +49,7 @@ func getBitCoinResponse(body []byte) (*BitcoinInfoAPIResponse, error) {
 	return s, err
 }
 
-func getR() string {
-	resp, _ := http.Get(URL)
 
-	body, _ := ioutil.ReadAll(resp.Body)
-	fmt.Println(string(body))
-	return string(body)
-}
 
 func postForm() {
 	resp, err := http.PostForm("http://example.com/form", url.Values{"key": {"Value"}, "id": {"123"}})
@@ -64,22 +57,7 @@ func postForm() {
 	fmt.Println(string(body), err)
 }
 
-func withGorequest() {
-	request := gorequest.New()
-	_, body, err := request.Get(URL).Retry(3, 5*time.Second, http.StatusBadRequest, http.StatusInternalServerError).End()
-	if err != nil {
-		panic(err)
-	}
-	s, err2 := getBitCoinResponse([]byte(body))
-	if err2 != nil {
-		panic(err2.Error())
-	}
-	fmt.Println(s.Status)
-	fmt.Println(s.Message)
-	fmt.Println(s.Markets[0].Ask)
-	fmt.Println(s.Markets[0].MarketName)
 
-}
 func withOutGoRequestPost() {
 	m := map[string]interface{}{
 		"name":    "jacky",
@@ -125,7 +103,6 @@ func sendBrowserVersion() {
 func mainfalse() {
 	// getR()
 	// postForm()
-	withGorequest()
 	withGoRequestPost()
 	withOutGoRequestPost()
 	sendBrowserVersion()

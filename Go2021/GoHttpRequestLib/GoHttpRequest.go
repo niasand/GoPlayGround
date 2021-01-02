@@ -14,6 +14,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"GoPlayGround/settings"
 )
 
 func HttpPost(baseurl string, endpoint string, body interface{}, headers map[string]string, cookies map[string]string) (*http.Response, error) {
@@ -36,7 +37,7 @@ func HttpPost(baseurl string, endpoint string, body interface{}, headers map[str
 		return nil, errors.New("NewRequest failed ")
 
 	}
-	req.Header.Set("Content-type", ContentType)
+	req.Header.Set("Content-type", settings.ContentType)
 
 	if headers != nil {
 		for key, val := range headers {
@@ -86,7 +87,7 @@ func HttpGet(baseurl string, endpoint string, params map[string]interface{}, hea
 		}
 	}
 
-	req.Header.Set("Content-type", ContentType)
+	req.Header.Set("Content-type", settings.ContentType)
 	if headers != nil {
 		for key, val := range headers {
 			req.Header.Add(key, val)

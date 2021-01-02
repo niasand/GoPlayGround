@@ -1,4 +1,4 @@
-package GoExamples
+package algorithms
 
 import (
 	"fmt"
