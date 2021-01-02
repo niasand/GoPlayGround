@@ -1,18 +1,21 @@
-# how_to_go
+# GoPlayGround
+
+### 我的Go学习历程
+
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fniasand%2Fhow_to_go.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fniasand%2Fhow_to_go?ref=badge_shield)
 
 Golang 
 Learn the go
 
 ```go
-package main
+package GoExamples
 
 import (
 	"fmt"
 	"strings"
 )
 
-func main() {
+func mainfalse() {
 
 
 	fmt.Printf("Fields are: %q", strings.Fields("  foo foo foo bar  baz   "))

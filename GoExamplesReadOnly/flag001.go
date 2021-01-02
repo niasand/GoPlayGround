@@ -1,0 +1,17 @@
+package GoExamplesReadOnly
+
+import (
+	"flag"
+	"fmt"
+	"time"
+)
+
+var period = flag.Duration("period", 1*time.Second,"Sleep period")
+
+func mainfalse(){
+
+	flag.Parse()
+	fmt.Printf("Sleeping for %v...", *period)
+	time.Sleep(*period)
+	fmt.Println()
+}
