@@ -4,3 +4,9 @@
  */
 
 package Go2021
+
+import "testing"
+
+func TestTwitterMsg(t *testing.T) {
+	TwitterMsg()
+}

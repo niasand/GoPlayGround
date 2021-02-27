@@ -4,10 +4,12 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/dghubble/oauth1"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 	"github.com/parnurzeal/gorequest"
+	"github.com/dghubble/go-twitter/twitter"
 )
 
 //URL to learn gorequest lib
@@ -107,4 +109,23 @@ func mainfalse() {
 	withOutGoRequestPost()
 	sendBrowserVersion()
 
+}
+
+func TwitterMsg(){
+	config := oauth1.NewConfig("0", "0")
+	token := oauth1.NewToken("1", "2")
+	httpClient := config.Client(oauth1.NoContext, token)
+
+	// Twitter client
+	client := twitter.NewClient(httpClient)
+
+	// Home Timeline
+	tweets, resp, err := client.Timelines.HomeTimeline(&twitter.HomeTimelineParams{
+		Count: 20,
+	})
+	fmt.Println(tweets, resp, err)
+
+	// Send a Tweet
+	tweet, resp, err := client.Statuses.Update("本条推来自bot", nil)
+	fmt.Println(tweet, resp, err)
 }
